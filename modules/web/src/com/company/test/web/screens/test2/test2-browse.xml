@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://test2Browse.caption"
+        focusComponent="test2sTable"
+        messagesPack="com.company.test.web.screens.test2">
+    <data readOnly="true">
+        <collection id="test2sDc"
+                    class="com.company.test.entity.Test2">
+            <view extends="_local"/>
+            <loader id="test2sDl">
+                <query>
+                    <![CDATA[select e from test_Test2 e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="test2sTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="test2sTable"
+                dataLoader="test2sDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="test2sTable"
+                    width="100%"
+                    dataContainer="test2sDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="cognome"/>
+                <column id="nome"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="test2sTable.create"/>
+                <button id="editBtn" action="test2sTable.edit"/>
+                <button id="removeBtn" action="test2sTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://testEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.test.web.screens.test">
+    <data>
+        <instance id="testDc"
+                  class="com.company.test.entity.Test">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="AUTO"
+                width="AUTO"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="testDc">
+            <column width="350px">
+                <textField id="cognomeField" property="cognome"/>
+                <textField id="nomeField" property="nome"/>
+                <textField id="indirizzoField" property="indirizzo"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
