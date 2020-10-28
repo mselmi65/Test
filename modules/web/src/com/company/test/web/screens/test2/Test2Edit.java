@@ -7,5 +7,5 @@ import com.company.test.entity.Test2;
 @UiDescriptor("test2-edit.xml")
 @EditedEntityContainer("test2Dc")
 @LoadDataBeforeShow
-public class TestEdit extends StandardEditor<Test2> {
+public class Test2Edit extends StandardEditor<Test2> {
 }
